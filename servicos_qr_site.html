@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechServices QR - Soluções Completas em TI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="white" opacity="0.1"/><circle cx="30" cy="30" r="3" fill="white" opacity="0.1"/><circle cx="60" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="2" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-menu {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .qr-section {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            background: white;
+            border: 3px solid #4facfe;
+            border-radius: 15px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #4facfe;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 2rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            padding: 0 2rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            color: #555;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: #4facfe;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .service-price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #4facfe;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            width: calc(100% - 4rem);
+        }
+
+        .service-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .testimonials-section {
+            padding: 3rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .testimonial-company {
+            color: #4facfe;
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp {
+            background: #25d366;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-phone {
+            background: #4facfe;
+            box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .portfolio-section {
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem 2rem;
+            }
+            
+            .service-card {
+                min-height: 280px;
+            }
+            
+            .nav-items {
+                gap: 1rem;
+            }
+            
+            .nav-item {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .emergency-banner {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .pricing-highlight {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="emergency-banner">
+        🚨 SUPORTE TÉCNICO 24/7 DISPONÍVEL - ATENDIMENTO DE EMERGÊNCIA: +244 900 000 000
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>💻 TechServices QR</h1>
+            <p>Soluções Completas em Tecnologia da Informação</p>
+            <p class="subtitle">Desenvolvimento • Manutenção • Design • Consultoria</p>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-items">
+                <a href="#desenvolvimento" class="nav-item">Desenvolvimento</a>
+                <a href="#design" class="nav-item">Design</a>
+                <a href="#manutencao" class="nav-item">Manutenção</a>
+                <a href="#consultoria" class="nav-item">Consultoria</a>
+                <a href="#portfolio" class="nav-item">Portfólio</a>
+                <a href="#contato" class="nav-item">Contato</a>
+            </div>
+        </nav>
+
+        <div class="qr-section">
+            <div class="qr-code" id="qrCode">
+                📱 QR
+            </div>
+            <h3>Escaneie para acessar nossos serviços</h3>
+            <p>Acesso rápido via smartphone • Catálogo completo • Orçamentos instantâneos</p>
+        </div>
+
+        <div class="stats-section">
+            <h2 class="section-title" style="color: white;">Nossos Números</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projetos Concluídos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Clientes Satisfeitos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Suporte Disponível</div>
+                </div>
+            </div>
+        </div>
+
+        <section id="desenvolvimento">
+            <h2 class="section-title">🚀 Desenvolvimento de Software</h2>
+            <p class="section-subtitle">Criamos soluções digitais sob medida para o seu negócio</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <div class="service-title">Website Profissional</div>
+                    <div class="service-description">
+                        Site responsivo e moderno com tecnologias atuais. SEO otimizado, velocidade de carregamento superior e design adaptativo.
+                    </div>
+                    <ul class="service-features">
+                        <li>Design responsivo para todos os dispositivos</li>
+                        <li>Otimização para motores de busca (SEO)</li>
+                        <li>Integração com redes sociais</li>
+                        <li>Certificado SSL incluído</li>
+                        <li>Backup automático diário</li>
+                    </ul>
+                    <div class="service-price">A partir de 25.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Website Profissional')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <div class="service-title">Aplicativo Mobile</div>
+                    <div class="service-description">
+                        Desenvolvimento de apps nativos e híbridos para Android e iOS. Interface intuitiva e performance otimizada.
+                    </div>
+                    <ul class="service-features">
+                        <li>Apps para Android e iOS</li>
+                        <li>Interface moderna e intuitiva</li>
+                        <li>Integração com APIs</li>
+                        <li>Notificações push</li>
+                        <li>Publicação nas lojas</li>
+                    </ul>
+                    <div class="service-price">A partir de 80.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Aplicativo Mobile')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <div class="service-title">E-commerce Completo</div>
+                    <div class="service-description">
+                        Loja virtual completa com carrinho, pagamentos online, gestão de produtos e relatórios de vendas.
+                    </div>
+                    <ul class="service-features">
+                        <li>Carrinho de compras avançado</li>
+                        <li>Múltiplas formas de pagamento</li>
+                        <li>Gestão de estoque automática</li>
+                        <li>Relatórios de vendas</li>
+                        <li>Sistema de cupons e promoções</li>
+                    </ul>
+                    <div class="service-price">A partir de 55.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('E-commerce Completo')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="service-title">Sistema de Gestão ERP</div>
+                    <div class="service-description">
+                        Sistema completo para gestão empresarial: vendas, estoque, financeiro, RH e relatórios gerenciais.
+                    </div>
+                    <ul class="service-features">
+                        <li>Módulo de vendas e CRM</li>
+                        <li>Controle de estoque avançado</li>
+                        <li>Gestão financeira completa</li>
+                        <li>Relatórios gerenciais</li>
+                        <li>Multi-usuário com permissões</li>
+                    </ul>
+                    <div class="service-price">A partir de 120.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Sistema ERP')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <div class="service-title">Menu Digital QR</div>
+                    <div class="service-description">
+                        Menu digital interativo com QR code para restaurantes. Atualizações em tempo real e design atrativo.
+                    </div>
+                    <ul class="service-features">
+                        <li>QR code personalizado</li>
+                        <li>Atualização em tempo real</li>
+                        <li>Categorias organizadas</li>
+                        <li>Fotos dos pratos</li>
+                        <li>Múltiplos idiomas</li>
+                    </ul>
+                    <div class="service-price">A partir de 15.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Menu Digital QR')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏫</div>
+                    <div class="service-title">Sistema Escolar</div>
+                    <div class="service-description">
+                        Plataforma completa para gestão educacional: matrículas, notas, frequência e comunicação.
+                    </div>
+                    <ul class="service-features">
+                        <li>Gestão de alunos e professores</li>
+                        <li>Sistema de notas e frequência</li>
+                        <li>Portal dos pais</li>
+                        <li>Biblioteca digital</li>
+                        <li>Relatórios acadêmicos</li>
+                    </ul>
+                    <div class="service-price">A partir de 90.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Sistema Escolar')">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="design">
+            <h2 class="section-title">🎨 Design & Identidade Visual</h2>
+            <p class="section-subtitle">Criamos a identidade visual perfeita para o seu negócio</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <div class="service-title">Criação de Logomarca</div>
+                    <div class="service-description">
+                        Logo profissional única e memorável. Inclui manual de identidade visual e arquivos em diversos formatos.
+                    </div>
+                    <ul class="service-features">
+                        <li>3 propostas iniciais diferentes</li>
+                        <li>Revisões ilimitadas</li>
+                        <li>Manual de identidade visual</li>
+                        <li>Arquivos vetoriais e raster</li>
+                        <li>Versões colorida e monocromática</li>
+                    </ul>
+                    <div class="service-price">A partir de 18.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Criação de Logomarca')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <div class="service-title">Material Gráfico</div>
+                    <div class="service-description">
+                        Cartões de visita, folders, banners, flyers e todo material promocional para sua empresa.
+                    </div>
+                    <ul class="service-features">
+                        <li>Cartões de visita personalizados</li>
+                        <li>Folders e catálogos</li>
+                        <li>Banners e outdoors</li>
+                        <li>Papelaria corporativa</li>
+                        <li>Material para redes sociais</li>
+                    </ul>
+                    <div class="service-price">A partir de 8.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Material Gráfico')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <div class="service-title">Design para Redes Sociais</div>
+                    <div class="service-description">
+                        Posts, stories, capas e todo conteúdo visual para suas redes sociais com identidade consistente.
+                    </div>
+                    <ul class="service-features">
+                        <li>Posts para Instagram e Facebook</li>
+                        <li>Stories animados</li>
+                        <li>Capas para redes sociais</li>
+                        <li>Templates personalizados</li>
+                        <li>Calendário de publicações</li>
+                    </ul>
+                    <div class="service-price">A partir de 12.000 AOA/mês</div>
+                    <button class="service-btn" onclick="contactService('Design Redes Sociais')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🖼️</div>
+                    <div class="service-title">Design de Interface (UI/UX)</div>
+                    <div class="service-description">
+                        Design de interfaces modernas e intuitivas para websites e aplicativos com foco na experiência do usuário.
+                    </div>
+                    <ul class="service-features">
+                        <li>Wireframes e protótipos</li>
+                        <li>Design system completo</li>
+                        <li>Testes de usabilidade</li>
+                        <li>Design responsivo</li>
+                        <li>Animações e microinterações</li>
+                    </ul>
+                    <div class="service-price">A partir de 35.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('UI/UX Design')">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="manutencao">
+            <h2 class="section-title">🔧 Manutenção & Suporte Técnico</h2>
+            <p class="section-subtitle">Mantenha seus equipamentos e sistemas sempre funcionando</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <div class="service-title">Manutenção de Computadores</div>
+                    <div class="service-description">
+                        Manutenção preventiva e corretiva de desktops e notebooks. Limpeza, formatação e upgrades.
+                    </div>
+                    <ul class="service-features">
+                        <li>Limpeza interna e externa</li>
+                        <li>Formatação e instalação do SO</li>
+                        <li>Upgrade de hardware</li>
+                        <li>Remoção de vírus e malware</li>
+                        <li>Backup e recuperação de dados</li>
+                    </ul>
+                    <div class="service-price">A partir de 3.500 AOA</div>
+                    <button class="service-btn" onclick="contactService('Manutenção de Computadores')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <div class="service-title">Suporte Técnico Remoto</div>
+                    <div class="service-description">
+                        Suporte à distância para resolver problemas em tempo real. Disponível 24/7 para emergências.
+                    </div>
+                    <ul class="service-features">
+                        <li>Acesso remoto seguro</li>
+                        <li>Resolução em tempo real</li>
+                        <li>Suporte 24/7</li>
+                        <li>Configuração de softwares</li>
+                        <li>Treinamento de usuários</li>
+                    </ul>
+                    <div class="service-price">A partir de 2.500 AOA/chamada</div>
+                    <button class="service-btn" onclick="contactService('Suporte Técnico Remoto')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <div class="service-title">Instalação de Redes</div>
+                    <div class="service-description">
+                        Instalação e configuração de redes cabeadas e wireless. Otimização de sinal e segurança de rede.
+                    </div>
+                    <ul class="service-features">
+                        <li>Rede cabeada estruturada</li>
+                        <li>Wi-Fi de alta performance</li>
+                        <li>Configuração de roteadores</li>
+                        <li>Segurança de rede</li>
+                        <li>Monitoramento de conexão</li>
+                    </ul>
+                    <div class="service-price">A partir de 15.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Instalação de Redes')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-title">Segurança Digital</div>
+                    <div class="service-description">
+                        Proteção completa contra vírus, malware e ataques cibernéticos. Configuração de firewalls e antivírus.
+                    </div>
+                    <ul class="service-features">
+                        <li>Instalação de antivírus premium</li>
+                        <li>Configuração de firewall</li>
+                        <li>Backup automático na nuvem</li>
+                        <li>Monitoramento de ameaças</li>
+                        <li>Treinamento em segurança</li>
+                    </ul>
+                    <div class="service-price">A partir de 8.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Segurança Digital')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💾</div>
+                    <div class="service-title">Recuperação de Dados</div>
+                    <div class="service-description">
+                        Recuperação de arquivos perdidos de HDs, pendrives, cartões de memória e outros dispositivos.
+                    </div>
+                    <ul class="service-features">
+                        <li>Recuperação de HDs danificados</li>
+                        <li>Restauração de pendrives</li>
+                        <li>Recuperação de fotos/vídeos</li>
+                        <li>Análise gratuita</li>
+                        <li>Garantia no serviço</li>
+                    </ul>
+                    <div class="service-price">A partir de 12.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Recuperação de Dados')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🖨️</div>
+                    <div class="service-title">Manutenção de Impressoras</div>
+                    <div class="service-description">
+                        Manutenção e reparo de impressoras, instalação de drivers e configuração de rede.
+                    </div>
+                    <ul class="service-features">
+                        <li>Limpeza de cabeças de impressão</li>
+                        <li>Troca de cartuchos e toners</li>
+                        <li>Configuração de rede</li>
+                        <li>Instalação de drivers</li>
+                        <li>Calibração de cores</li>
+                    </ul>
+                    <div class="service-price">A partir de 4.500 AOA</div>
+                    <button class="service-btn" onclick="contactService('Manutenção de Impressoras')">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="consultoria">
+            <h2 class="section-title">💡 Consultoria & Marketing Digital</h2>
+            <p class="section-subtitle">Estratégias digitais para fazer seu negócio crescer</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <div class="service-title">Marketing Digital</div>
+                    <div class="service-description">
+                        Gestão completa de redes sociais, criação de conteúdo e campanhas publicitárias online.
+                    </div>
+                    <ul class="service-features">
+                        <li>Gestão de Facebook e Instagram</li>
+                        <li>Criação de conteúdo diário</li>
+                        <li>Campanhas publicitárias pagas</li>
+                        <li>Análise de métricas</li>
+                        <li>Relatórios mensais</li>
+                    </ul>
+                    <div class="service-price">A partir de 18.000 AOA/mês</div>
+                    <button class="service-btn" onclick="contactService('Marketing Digital')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <div class="service-title">Consultoria em TI</div>
+                    <div class="service-description">
+                        Análise e otimização da infraestrutura de TI da sua empresa. Planejamento estratégico tecnológico.
+                    </div>
+                    <ul class="service-features">
+                        <li>Auditoria de infraestrutura</li>
+                        <li>Planejamento estratégico</li>
+                        <li>Otimização de processos</li>
+                        <li>Redução de custos</li>
+                        <li>Implementação de soluções</li>
+                    </ul>
+                    <div class="service-price">A partir de 25.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Consultoria em TI')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <div class="service-title">Treinamentos em TI</div>
+                    <div class="service-description">
+                        Cursos e treinamentos personalizados para sua equipe em diversas tecnologias e ferramentas.
+                    </div>
+                    <ul class="service-features">
+                        <li>Treinamento em Microsoft Office</li>
+                        <li>Curso de programação básica</li>
+                        <li>Segurança da informação</li>
+                        <li>Uso de sistemas específicos</li>
+                        <li>Certificados de participação</li>
+                    </ul>
+                    <div class="service-price">A partir de 15.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Treinamentos em TI')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <div class="service-title">Migração para Nuvem</div>
+                    <div class="service-description">
+                        Migração segura de dados e sistemas para a nuvem. Redução de custos e maior segurança.
+                    </div>
+                    <ul class="service-features">
+                        <li>Análise de viabilidade</li>
+                        <li>Migração segura de dados</li>
+                        <li>Configuração de backups</li>
+                        <li>Treinamento da equipe</li>
+                        <li>Suporte pós-migração</li>
+                    </ul>
+                    <div class="service-price">A partir de 30.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Migração para Nuvem')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="service-title">Análise de Dados & BI</div>
+                    <div class="service-description">
+                        Transforme seus dados em insights valiosos com dashboards interativos e relatórios automatizados.
+                    </div>
+                    <ul class="service-features">
+                        <li>Dashboards personalizados</li>
+                        <li>Relatórios automatizados</li>
+                        <li>Análise de performance</li>
+                        <li>Indicadores de negócio</li>
+                        <li>Previsões e tendências</li>
+                    </ul>
+                    <div class="service-price">A partir de 40.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Business Intelligence')">Solicitar Orçamento</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <div class="service-title">Automação de Processos</div>
+                    <div class="service-description">
+                        Automatize tarefas repetitivas e otimize processos empresariais com soluções inteligentes.
+                    </div>
+                    <ul class="service-features">
+                        <li>Análise de processos</li>
+                        <li>Desenvolvimento de bots</li>
+                        <li>Integração de sistemas</li>
+                        <li>Monitoramento automático</li>
+                        <li>Redução de custos operacionais</li>
+                    </ul>
+                    <div class="service-price">A partir de 35.000 AOA</div>
+                    <button class="service-btn" onclick="contactService('Automação de Processos')">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <h2 class="section-title">🏆 Nosso Portfólio</h2>
+            <p class="section-subtitle">Alguns dos projetos que desenvolvemos com sucesso</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏪</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Loja Virtual - Moda Angola</div>
+                        <div class="portfolio-description">E-commerce completo para venda de roupas com mais de 500 produtos e integração com redes sociais.</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🍽️</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Menu Digital - Restaurante Sabor</div>
+                        <div class="portfolio-description">Menu digital com QR code para restaurante com 150+ pratos e sistema de pedidos online.</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Sistema Clínica Médica</div>
+                        <div class="portfolio-description">Sistema completo para gestão de consultas, pacientes e prontuários eletrônicos.</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏫</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Plataforma Educacional</div>
+                        <div class="portfolio-description">Sistema de gestão escolar para mais de 2000 alunos com portal dos pais integrado.</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Sistema ERP Empresarial</div>
+                        <div class="portfolio-description">ERP completo para empresa de logística com módulos financeiro, estoque e RH.</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">App Delivery</div>
+                        <div class="portfolio-description">Aplicativo de delivery para Android e iOS com mais de 10.000 downloads.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="testimonials-section">
+            <h2 class="section-title">💬 Depoimentos de Clientes</h2>
+            <p class="section-subtitle">O que nossos clientes falam sobre nossos serviços</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Excelente trabalho! Criaram nosso site e aumentamos as vendas em 200%. Equipe muito profissional e atendimento excepcional."</div>
+                    <div class="testimonial-author">João Silva</div>
+                    <div class="testimonial-company">Diretor - Empresa XYZ Lda</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"O sistema de gestão revolucionou nossa empresa. Agora temos controle total de tudo. Recomendo 100%!"</div>
+                    <div class="testimonial-author">Maria Santos</div>
+                    <div class="testimonial-company">CEO - TechSolutions Angola</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Suporte técnico impecável! Sempre disponíveis e resolvem tudo rapidamente. Nossa produtividade aumentou muito."</div>
+                    <div class="testimonial-author">Carlos Mendes</div>
+                    <div class="testimonial-company">Gerente TI - Banco Nacional</div>
+                </div>
+            </div>
+        </div>
+
+        <section id="contato" class="contact-section">
+            <h2>📞 Entre em Contato</h2>
+            <p>Estamos prontos para transformar suas ideias em realidade digital</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-title">Telefone/WhatsApp</div>
+                    <div class="contact-info">+244 900 000 000</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-title">E-mail</div>
+                    <div class="contact-info">contato@techservicesqr.ao</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-title">Localização</div>
+                    <div class="contact-info">Luanda, Angola<br>Atendimento em todo país</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-title">Horário</div>
+                    <div class="contact-info">Seg-Sex: 8h às 18h<br>Emergências: 24/7</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💰</div>
+                    <div class="contact-title">Formas de Pagamento</div>
+                    <div class="contact-info">Dinheiro, Transferência<br>Multicaixa, PayPal</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🚀</div>
+                    <div class="contact-title">Orçamento</div>
+                    <div class="contact-info">Gratuito e sem compromisso<br>Resposta em 24h</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="floating-buttons">
+        <a href="tel:+244900000000" class="floating-btn floating-phone">📞</a>
+        <div class="floating-btn floating-whatsapp" onclick="openWhatsApp()">📲</div>
+    </div>
+
+    <script>
+        // Gerar QR Code mais realista
+        function generateQR() {
+            const url = window.location.href;
+            const qrCode = document.getElementById('qrCode');
+            
+            qrCode.innerHTML = `
+                <div style="background: #000; width: 150px; height: 150px; margin: 0 auto; position: relative; display: grid; grid-template-columns: repeat(15, 1fr); grid-template-rows: repeat(15, 1fr); gap: 1px;">
+                    ${Array.from({length: 225}, (_, i) => 
+                        `<div style="background: ${Math.random() > 0.5 ? '#000' : '#fff'}; width: 100%; height: 100%;"></div>`
+                    ).join('')}
+                </div>
+            `;
+        }
+
+        function contactService(serviceName) {
+            const message = `Olá! Gostaria de solicitar um orçamento para: *${serviceName}*
+
+Informações adicionais:
+- Nome da empresa/pessoa:
+- Prazo desejado:
+- Orçamento disponível:
+- Detalhes específicos:
+
+Aguardo retorno. Obrigado!`;
+            
+            const whatsappUrl = `https://wa.me/244900000000?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openWhatsApp() {
+            const message = `Olá! Vi seus serviços no site e gostaria de saber mais informações.
+
+Tenho interesse em:
+- [ ] Desenvolvimento de Software
+- [ ] Design Gráfico
+- [ ] Manutenção de Computadores
+- [ ] Consultoria em TI
+- [ ] Marketing Digital
+
+Aguardo contato. Obrigado!`;
+            
+            const whatsappUrl = `https://wa.me/244900000000?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Navegação suave
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Contador animado para estatísticas
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const suffix = counter.textContent.replace(/[0-9]/g, '');
+                let current = 0;
+                const increment = target / 100;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 20);
+            });
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQR();
+            
+            // Animar cards ao carregar
+            const cards = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                
+                observer.observe(card);
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+
+            // Animar contadores quando a seção de stats ficar visível
+            const statsSection = document.querySelector('.stats-section');
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+
+        // Efeito parallax suave no header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header');
+            if (header) {
+                header.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
